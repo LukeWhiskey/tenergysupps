@@ -1,0 +1,209 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="CSS/containerTheme.css">
+    <link rel="stylesheet" href="CSS/custQuickNav.css">
+    <link rel="stylesheet" href="CSS/dynaBanner.css">
+    <link rel="stylesheet" href="CSS/scrollBar.css">
+    <link rel="stylesheet" href="CSS/offer.css">
+    <style>
+        .loginCont {
+            width: 600px;
+            margin: 25px;
+            float: left;
+            background-color: black;
+        }
+        @keyframes scroll {
+            0% {
+                top: 0px;
+            }
+            100% {
+                top: 0px;
+            }
+        }
+        @keyframes scroll1 {
+            0% {
+                top: 0px;
+            }
+            100% {
+                top: 0px;
+            }
+        }
+    </style>
+</head>
+<body style="margin-top: -20px; min-width: 650px;">
+    <style>
+        * {
+            max-width: 100%;
+            margin: 0px;
+            padding: 0px;
+            color: white;
+            font-family: Arial;
+            background-color: rgb(50, 50, 50);
+        }
+    </style>
+    <cont>
+        <div class="dynaTheme" style="background-image: none;">
+            <div id="ban">
+                <div id="banCont" style="z-index: 1;">Tenergy</div>
+            </div>
+            <table id="credCont">
+                <td class="loginCont" style="padding: 20px; padding-top: 0px; text-align: left; box-shadow: 2px 2px 20px black;">
+                    <h2 style="font-size: 22px; background-color: transparent; padding: 25px; padding-bottom: 10px; text-align: center; letter-spacing: 6px;">Signup For <p style="color: rgb(0, 200, 0); padding: 5px; margin: 5px; background-color: rgb(0, 20, 0);">ENERGY</p></h2>
+                    <div style="background-color: transparent;">
+                        <p style="font-size: 14px; background-color: transparent; margin-left: 20px;">Sign up with:</p>
+                    </div>
+                    <button class="icon" style="border: 2px solid green; font-size: 12px; margin-left: 20px; width: 40%; background-color: black; float: left;">
+                        <p style="margin-top: 10px;  background-color: transparent;">
+                            <img style="width: 25px; margin-right: 5px;" src="Assets/FacebookIcon.png" />
+                            Facebook
+                        </p>
+                    </button>
+                    <button class="icon" style="border: 2px solid green; font-size: 12px; margin-right: 20px; width: 40%; background-color: black; float: right;">
+                        <p style="margin-top: 10px; background-color: transparent;">
+                            <img style="width: 25px; margin-right: 5px;" src="Assets/googleIcon.png" />
+                            Google
+                        </p>
+                    </button>
+                    <div style="height: 1px; margin: 25px;  margin-top: 90px;"></div>
+                    <div style="background-color: transparent;">
+                        <p style="font-size: 14px; background-color: transparent; margin-left: 20px;">Or create an email accuont:</p>
+                    </div>
+                    <div style="padding: 25px; font-size: 14px; background-color: transparent;">
+                        <p style="margin: 0px; margin-left: 5px; background-color: transparent;">Full Name</p> <br>
+                        <input class="icon" type="text" style="margin-left: 0px; background-color: black; padding: 5px; padding-left: 10px; outline: none; border: 2px solid green; border-radius: 2px; width: 100%;" />
+                    </div>
+                    <div style="padding: 25px; font-size: 14px; background-color: transparent;">
+                        <p style="margin: 0px; margin-left: 5px; background-color: transparent;">Email Address</p> <br>
+                        <input class="icon" type="email" style="margin-left: 0px; background-color: black; padding: 5px; padding-left: 10px; outline: none; border: 2px solid green; border-radius: 2px; width: 100%;" />
+                    </div>
+                    <div style="padding: 25px; font-size: 14px; background-color: transparent;">
+                        <p style="margin: 0px; margin-left: 5px; background-color: transparent;">Confirm Email Address</p> <br>
+                        <input class="icon" type="email" style="margin-left: 0px; background-color: black; padding: 5px; padding-left: 10px; outline: none; border: 2px solid green; border-radius: 2px; width: 100%;" />
+                    </div>
+                    <div style="padding: 25px; padding-top: 10px; font-size: 14px; background-color: transparent;">
+                        <p style="margin: 0px; margin-left: 5px; background-color: transparent;">Password</p> <br>
+                        <input class="icon" type="password" style="margin-left: 0px; background-color: black; padding: 5px; padding-left: 10px; outline: none; border: 2px solid green; border-radius: 2px; width: 100%;" />
+                        <p style="margin: 10px; margin-bottom: 0px; background-color: transparent; font-size: 11px; color: rgb(120, 120, 120);">Include a minimum of 8 characters, contain at least one uppercase letter, one lowercase letter and one number</p>
+                    </div>
+                    <div style="padding: 25px; padding-top: 10px; font-size: 14px; background-color: transparent;">
+                        <p style="margin: 0px; margin-left: 5px; background-color: transparent;">Confirm Password</p> <br>
+                        <input class="icon" type="password" style="margin-left: 0px; background-color: black; padding: 5px; padding-left: 10px; outline: none; border: 2px solid green; border-radius: 2px; width: 100%;" />
+                    </div>
+                    <div style="padding: 25px; padding-top: 10px; font-size: 14px; background-color: transparent;">
+                        <p style="margin: 0px; margin-left: 5px; background-color: transparent;">Mobile Number (Optional)</p><br>
+                        <input class="icon" style="margin-left: 0px; background-color: black; padding: 5px; padding-left: 10px; outline: none; border: 2px solid green; border-radius: 2px; width: 100%;" />
+                        <p style="margin: 10px; margin-bottom: 0px; background-color: transparent; font-size: 11px; color: rgb(120, 120, 120);">We will use this number to send occasional promotional messages. Please ensure you use the country prefix e.g. +44</p>
+                    </div>
+                    <div style="width: 91.5%; margin-left: 25px; padding: 25px; font-size: 14px; background-color: rgb(0, 20, 0);">
+                        <p style="margin: 0px; margin-left: 5px; background-color: transparent;">Referal Code (Optional)</p> <br>
+                        <input class="icon" type="text" style="width: 80%; margin-left: 0px; background-color: black; padding: 5px; padding-left: 10px; outline: none; border: 2px solid green; border-radius: 2px; width: 100%;" />
+                        <p style="margin: 10px; margin-bottom: 0px; background-color: transparent; font-size: 11px; color: rgb(200, 200, 200);">* Your referrals discount is automatically applied at basket</p>
+                    </div>
+                    <p style="margin: 20px; margin-bottom: 0px; background-color: transparent; font-size: 12px; color: rgb(200, 200, 200);">From time to time we would like to send you emails containing:</p>
+                    <p style="margin: 15px; margin-left: 50px; margin-bottom: 0px; background-color: transparent; font-size: 12px; color: rgb(200, 200, 200);">Black Friday Offers</p>
+                    <p style="margin: 15px; margin-left: 50px; margin-bottom: 0px; background-color: transparent; font-size: 12px; color: rgb(200, 200, 200);">Exclusive Discounts</p>
+                    <p style="margin: 15px; margin-left: 50px; margin-bottom: 0px; background-color: transparent; font-size: 12px; color: rgb(200, 200, 200);">Exclusive workout & fitness plans</p>
+                    <button class="butt" style="width: 92.5%; margin: 20px; padding: 10px; background-color: rgb(0, 200, 0); border: 2px solid green;">Sign up</button>
+                    <p style="margin: 20px; margin-top: 0px; background-color: transparent; font-size: 12px; color: rgb(200, 200, 200);">Continue By proceeding, you are confirming that you agree to our <a>Terms and Conditions</a> and <a>Privacy Policy</a></p>
+                </td>
+            </table>
+        </div>
+    </cont>
+    <script>
+        setInterval(function () {
+            $('#ban').css('height', document.getElementById("banCont").offsetHeight);
+            if (window.pageYOffset > 0) {
+                $('#banCont').css('transition', '0.25s ease-in-out');
+                $('#banCont').css('position', 'fixed');
+                $('#banCont').css('box-shadow', '0px 0px 10px black');
+                $('#banCont').css('opacity', '0.75');
+                $('#banCont').css('font-size', '30px');
+            }
+            else if (window.pageYOffset == 0) {
+                $('#banCont').css('transition', '0.25s ease-in-out');
+                $('#banCont').css('position', 'relative');
+                $('#banCont').css('box-shadow', '0px 0px 0px black');
+                $('#banCont').css('opacity', '1');
+                $('#banCont').css('font-size', '55px');
+            }
+            if (window.innerWidth < 1000) {
+                $('#credCont').css("margin-left", "calc(50% - 325px)");
+                $('.loginCont').css("float", "left");
+                $('.registerNew').css("float", "left");
+            }
+            else {
+                $('#credCont').css("margin-left", (window.innerWidth - document.getElementById("credCont").offsetWidth) / 2);
+            }
+        });
+        $('.butt').hover(function () {
+            $(this).css("transition", "0.125s ease-in-out");
+            $(this).css("background-color", "rgb(0, 100, 0)");
+        }, function () {
+            $(this).css("transition", "0.125s ease-in-out");
+            $(this).css("background-color", "rgb(0, 200, 0)");
+        });
+        $('.icon').hover(function () {
+            $(this).css("transition", "0.125s ease-in-out");
+            $(this).css("border-color", "rgb(0, 200, 0)");
+        }, function () {
+            $(this).css("transition", "0.125s ease-in-out");
+            $(this).css("border-color", "green");
+        });
+    </script>
+    <script>
+        /*
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return false;
+        }
+        function checkCookie(cname) {
+            let cookieName = getCookie(cname);
+            if (cookieName == false) {
+                crypto.randomBytes(20, (err, num) => {
+                    alert("dcdw");
+                    setCookie(cname, num, 31);
+                    return true;
+                });
+            }
+            return false;
+        }
+        alert(checkCookie("userID"));
+        if (getCookie("userID") == false) {
+            checkCookie("anonID");
+            $('#accountItemText').append("<a>Login</a>");
+            $('#accountItemText').append("<a>Register</a>");
+        }
+        else {
+            $('#accountItemText').append("<a>Signout</a>");
+            $('#accountItemText').append("<a>Profile</a>");
+            $('#accountItemText').append("<a>Orders</a>");
+        }
+        */
+    </script>
+</body>
+</html>

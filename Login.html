@@ -1,0 +1,203 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="CSS/containerTheme.css">
+    <link rel="stylesheet" href="CSS/custQuickNav.css">
+    <link rel="stylesheet" href="CSS/dynaBanner.css">
+    <link rel="stylesheet" href="CSS/scrollBar.css">
+    <link rel="stylesheet" href="CSS/offer.css">
+    <style>
+        .loginCont {
+            width: 400px;
+            margin: 25px;
+            float: left;
+        }
+
+        .registerNew {
+            width: 400px;
+            margin: 25px;
+            float: left;
+        }
+
+        .loginCont, .registerNew {
+            background-color: black;
+        }
+        @keyframes scroll {
+            0% {
+                top: -100px;
+            }
+            100% {
+                top: 0px;
+            }
+        }
+        @keyframes scroll1 {
+            0% {
+                top: 0px;
+            }
+            100% {
+                top: 0px;
+            }
+        }
+    </style>
+</head>
+<body style="margin-top: -20px;">
+    <style>
+        * {
+            max-width: 100%;
+            margin: 0px;
+            padding: 0px;
+            color: white;
+            font-family: Arial;
+            background-color: rgb(50, 50, 50);
+        }
+    </style>
+    <cont>
+        <div class="dynaTheme" style="background-image: none;">
+            <div id="ban">
+                <div id="banCont" style="z-index: 1;">Tenergy</div>
+            </div>
+            <table id="credCont">
+                <td class="loginCont" style="padding: 20px; padding-top: 0px; text-align: left; box-shadow: 2px 2px 20px black; ">
+                    <h2 style="font-size: 22px; background-color: transparent; padding: 25px; padding-bottom: 10px;">Customer login</h2>
+                    <div style="padding: 25px; font-size: 14px; background-color: transparent;">
+                        <p style="margin: 0px; margin-left: 5px; background-color: transparent;">Email Address</p> <br>
+                        <input class="icon" type="email" style="margin-left: 0px; background-color: black; padding: 5px; padding-left: 10px; outline: none; border: 2px solid green; border-radius: 2px;"/>
+                    </div>
+                    <div style="padding: 25px; padding-top: 10px; font-size: 14px; background-color: transparent;">
+                        <p style="margin: 0px; margin-left: 5px; background-color: transparent;">Password</p> <br>
+                        <input class="icon" type="password" style="margin-left: 0px; background-color: black; padding: 5px; padding-left: 10px; outline: none; border: 2px solid green; border-radius: 2px;"/>
+                    </div>
+                    <div style="background-color: transparent; margin-top: 10px; margin-left: 20px; text-decoration: underline; font-size: 14px;">
+                        <a>Forgotten your password?</a>
+                    </div>
+                    <button class="butt" style="width: 90%; margin: 20px; margin-top: 10px; padding: 10px; background-color: rgb(0, 200, 0); border: 2px solid green;">Sign in</button>
+                    <div style="background-color: transparent;">
+                        <p style="font-size: 14px; background-color: transparent; margin-left: 20px;">Or, Continue with</p>
+                    </div>
+                    <button class="icon" style="border: 2px solid green; font-size: 12px; margin-left: 20px; width: 40%; background-color: black; float: left;">
+                        <p style="margin-top: 10px;  background-color: transparent;">
+                            <img style="width: 25px; margin-right: 5px;" src="Assets/FacebookIcon.png" />
+                            Facebook
+                        </p>
+                    </button>
+                    <button class="icon" style="border: 2px solid green; font-size: 12px; margin-right: 20px; width: 40%; background-color: black; float: right;">
+                        <p style="margin-top: 10px; background-color: transparent;">
+                            <img style="width: 25px; margin-right: 5px;" src="Assets/googleIcon.png" />
+                            Google
+                        </p>
+                    </button>
+                </td>
+                <td class="registerNew" style="padding: 20px; padding-top: 0px; text-align: left; box-shadow: 2px 2px 20px black;">
+                    <h2 style="font-size: 22px; background-color: transparent; padding: 25px; padding-bottom: 10px;">New to Tenergy?</h2>
+                    <div style="padding: 25px; padding-top: 0px; padding-bottom: 0px; background-color: transparent;">
+                        <p style="background-color: transparent; font-size: 13px; line-height: 20px;">Gain access to the lowest priced supplements in Europe by Signing up to a TenergySupps Account.</p>
+                        <p style="background-color: transparent; font-size: 13px; line-height: 20px;">Including a range of exclusive discounts only on Tenergy.</p>
+                    </div>
+                    <a href="/register">
+                        <button class="butt" style="border: 2px solid rgb(0, 200, 0); margin: 20px; width: 90%; background-color: rgb(0, 200, 0); border: 2px solid green;">
+                            <p style="margin-top: 10px; background-color: transparent;">
+                                Sign up
+                            </p>
+                        </button>
+                    </a>
+                </td>
+            </table>
+        </div>
+    </cont>
+    <script>
+        setInterval(function () {
+            $('#ban').css('height', document.getElementById("banCont").offsetHeight);
+            if (window.pageYOffset > document.getElementById("banCont").offsetHeight) {
+                $('#banCont').css('transition', '0.5s ease-in-out');
+                $('#banCont').css('position', 'fixed');
+                $('#banCont').css('box-shadow', '0px 0px 10px black');
+                $('#banCont').css('opacity', '0.5');
+                $('#banCont').css('animation', 'scroll 0.15s ease-in-out forwards');
+            }
+            else if (window.pageYOffset == 0) {
+                $('#banCont').css('transition', '0.125s ease-in-out');
+                $('#banCont').css('position', 'relative');
+                $('#banCont').css('box-shadow', '0px 0px 0px black');
+                $('#banCont').css('opacity', '1');
+                $('#banCont').css('animation', 'scroll1 0.15s ease-in-out backwards');
+            }
+            if (window.innerWidth < 1000) {
+                $('#credCont').css("margin-left", "calc(50% - 225px)");
+                $('.loginCont').css("float", "left");
+                $('.registerNew').css("float", "left");
+            }
+            else {
+                $('#credCont').css("margin-left", (window.innerWidth - document.getElementById("credCont").offsetWidth) / 2);
+            }
+        });
+        $('.butt').hover(function () {
+            $(this).css("transition", "0.125s ease-in-out");
+            $(this).css("background-color", "rgb(0, 100, 0)");
+        }, function () {
+            $(this).css("transition", "0.125s ease-in-out");
+            $(this).css("background-color", "rgb(0, 200, 0)");
+        });
+        $('.icon').hover(function () {
+            $(this).css("transition", "0.125s ease-in-out");
+            $(this).css("border-color", "rgb(0, 200, 0)");
+        }, function () {
+            $(this).css("transition", "0.125s ease-in-out");
+            $(this).css("border-color", "green");
+        });
+    </script>
+    <script>
+        /*
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return false;
+        }
+        function checkCookie(cname) {
+            let cookieName = getCookie(cname);
+            if (cookieName == false) {
+                crypto.randomBytes(20, (err, num) => {
+                    alert("dcdw");
+                    setCookie(cname, num, 31);
+                    return true;
+                });
+            }
+            return false;
+        }
+        alert(checkCookie("userID"));
+        if (getCookie("userID") == false) {
+            checkCookie("anonID");
+            $('#accountItemText').append("<a>Login</a>");
+            $('#accountItemText').append("<a>Register</a>");
+        }
+        else {
+            $('#accountItemText').append("<a>Signout</a>");
+            $('#accountItemText').append("<a>Profile</a>");
+            $('#accountItemText').append("<a>Orders</a>");
+        }
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿<html>
+<head>
+    <style>
+        #box {
+            width: 100vw;
+            height: 100vh;
+            background-color: pink;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0px;
+        }
+    </style>
+    <div id="box" style="position: absolute;">
+        <h1>r3fniueri</h1>
+        <h2>r3fniueri</h2>
+        <h3>r3fniueri</h3>
+    </div>
+    <button onclick="but()"style="width: 100px; height: 100px; position: absolute; z-index: 1; margin-left: 1000px;"></button>
+    <script>
+        var i = 0;
+        function but() {
+            if (i == 0) {
+                document.getElementById("box").style.display = "block";
+                i = 1;
+            }
+            else {
+                document.getElementById("box").style.display = "none";
+                i = 0;
+            }
+        }
+    </script>
+</body>
+</html>
