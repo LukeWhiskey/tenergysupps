@@ -1,0 +1,18 @@
+.custNav {
+            background-color: green;
+            font-size: 13px;
+            font-weight: 500;
+            width: 100%;
+            position: relative;
+        }
+        .custNavBut {
+            float: right;
+            padding: 10px;
+        }
+            .custNavBut:hover {
+                cursor: pointer;
+                background-color: black;
+            }
+        .custNavButHyp {
+            color: white;
+        }
