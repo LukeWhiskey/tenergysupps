@@ -50,12 +50,10 @@
         }
     </style>
     <cont>
-        <div class="dynaTheme" style="background-image: none;">
-            <div id="ban">
-                <div id="banCont" style="z-index: 1;">Tenergy</div>
-            </div>
+        <div class="dynaTheme" id="theme" style="background-image: none;">
             <table id="credCont">
-                <td class="loginCont" style="padding: 20px; padding-top: 0px; text-align: left; box-shadow: 2px 2px 20px black;">
+                <div id="banCont" style="position: fixed;"><a href="/" id="banContHref" style="font-family: Tarrget3DItalic-LdKg; color: rgb(0, 200, 0); text-decoration: none;"></a></div>
+                <td class="loginCont" style="padding: 20px; padding-top: 0px; margin-top: 120px; text-align: left; box-shadow: 2px 2px 20px black;">
                     <h2 style="font-size: 22px; background-color: transparent; padding: 25px; padding-bottom: 10px; text-align: center; letter-spacing: 6px;">Signup For <p style="color: rgb(0, 200, 0); padding: 5px; margin: 5px; background-color: rgb(0, 20, 0);">ENERGY</p></h2>
                     <div style="background-color: transparent;">
                         <p style="font-size: 14px; background-color: transparent; margin-left: 20px;">Sign up with:</p>
@@ -118,22 +116,34 @@
         </div>
     </cont>
     <script>
+        let oldValue = 0
+        let newValue = 0
+        window.addEventListener('scroll', () => {
+            newValue = window.pageYOffset;
+            newValue = window.pageYOffset;
+            if (pageYOffset > 80) {
+                $('#banCont').css('transition', '0.125s ease-in-out');
+                if (oldValue > newValue) {
+                    $('#banCont').css('top', 0);
+                } else if (oldValue < newValue) {
+                    $('#banCont').css('top', -100);
+                    if (newValue == 0) {
+                        $('#banCont').css('opacity', '1');
+                    }
+                    else if (newValue > 0) {
+                        $('#banCont').css('opacity', '0.75');
+                    }
+                }
+            } else if (newValue == 0) {
+                $('#banCont').css('opacity', '1');
+            } else if (newValue < 80) {
+                $('#banCont').css('opacity', '0.75');
+            }
+            oldValue = newValue;
+            oldValue = newValue;
+        });
         setInterval(function () {
             $('#ban').css('height', document.getElementById("banCont").offsetHeight);
-            if (window.pageYOffset > 0) {
-                $('#banCont').css('transition', '0.25s ease-in-out');
-                $('#banCont').css('position', 'fixed');
-                $('#banCont').css('box-shadow', '0px 0px 10px black');
-                $('#banCont').css('opacity', '0.75');
-                $('#banCont').css('font-size', '30px');
-            }
-            else if (window.pageYOffset == 0) {
-                $('#banCont').css('transition', '0.25s ease-in-out');
-                $('#banCont').css('position', 'relative');
-                $('#banCont').css('box-shadow', '0px 0px 0px black');
-                $('#banCont').css('opacity', '1');
-                $('#banCont').css('font-size', '55px');
-            }
             if (window.innerWidth < 1000) {
                 $('#credCont').css("margin-left", "calc(50% - 325px)");
                 $('.loginCont').css("float", "left");
@@ -142,6 +152,7 @@
             else {
                 $('#credCont').css("margin-left", (window.innerWidth - document.getElementById("credCont").offsetWidth) / 2);
             }
+            var newheightOffset = window.pageYOffset;
         });
         $('.butt').hover(function () {
             $(this).css("transition", "0.125s ease-in-out");
@@ -156,6 +167,23 @@
         }, function () {
             $(this).css("transition", "0.125s ease-in-out");
             $(this).css("border-color", "green");
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            setInterval(function () {
+                if (window.innerWidth < 1200) {
+                    document.getElementById('banContHref').innerHTML = "TE";
+                }
+                else {
+                    document.getElementById('banContHref').innerHTML = "Tenergy";
+                }
+            });
+            $('#banContHref').hover(() => {
+                $('#banContHref').css('color', 'white');
+            }, () => {
+                $('#banContHref').css('color', 'rgb(0, 200, 0)');
+            });
         });
     </script>
     <script>

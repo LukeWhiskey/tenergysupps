@@ -29,22 +29,6 @@
         .loginCont, .registerNew {
             background-color: black;
         }
-        @keyframes scroll {
-            0% {
-                top: -100px;
-            }
-            100% {
-                top: 0px;
-            }
-        }
-        @keyframes scroll1 {
-            0% {
-                top: 0px;
-            }
-            100% {
-                top: 0px;
-            }
-        }
     </style>
 </head>
 <body style="margin-top: -20px;">
@@ -59,20 +43,18 @@
         }
     </style>
     <cont>
-        <div class="dynaTheme" style="background-image: none;">
-            <div id="ban">
-                <div id="banCont" style="z-index: 1;">Tenergy</div>
-            </div>
+        <div class="dynaTheme" id="theme" style="background-image: none;">
             <table id="credCont">
-                <td class="loginCont" style="padding: 20px; padding-top: 0px; text-align: left; box-shadow: 2px 2px 20px black; ">
+                <div id="banCont" style="position: fixed;"><a href="/" id="banContHref" style="font-family: Tarrget3DItalic-LdKg; color: rgb(0, 200, 0); text-decoration: none;"></a></div>
+                <td class="loginCont" style="padding: 20px; padding-top: 0px; margin-top: 120px; text-align: left; box-shadow: 2px 2px 20px black; ">
                     <h2 style="font-size: 22px; background-color: transparent; padding: 25px; padding-bottom: 10px;">Customer login</h2>
                     <div style="padding: 25px; font-size: 14px; background-color: transparent;">
                         <p style="margin: 0px; margin-left: 5px; background-color: transparent;">Email Address</p> <br>
-                        <input class="icon" type="email" style="margin-left: 0px; background-color: black; padding: 5px; padding-left: 10px; outline: none; border: 2px solid green; border-radius: 2px;"/>
+                        <input class="icon" type="email" style="margin-left: 0px; background-color: black; padding: 5px; padding-left: 10px; outline: none; border: 2px solid green; border-radius: 2px;" />
                     </div>
                     <div style="padding: 25px; padding-top: 10px; font-size: 14px; background-color: transparent;">
                         <p style="margin: 0px; margin-left: 5px; background-color: transparent;">Password</p> <br>
-                        <input class="icon" type="password" style="margin-left: 0px; background-color: black; padding: 5px; padding-left: 10px; outline: none; border: 2px solid green; border-radius: 2px;"/>
+                        <input class="icon" type="password" style="margin-left: 0px; background-color: black; padding: 5px; padding-left: 10px; outline: none; border: 2px solid green; border-radius: 2px;" />
                     </div>
                     <div style="background-color: transparent; margin-top: 10px; margin-left: 20px; text-decoration: underline; font-size: 14px;">
                         <a>Forgotten your password?</a>
@@ -94,7 +76,7 @@
                         </p>
                     </button>
                 </td>
-                <td class="registerNew" style="padding: 20px; padding-top: 0px; text-align: left; box-shadow: 2px 2px 20px black;">
+                <td class="registerNew" style="padding: 20px; padding-top: 0px; margin-top: 120px; text-align: left; box-shadow: 2px 2px 20px black;">
                     <h2 style="font-size: 22px; background-color: transparent; padding: 25px; padding-bottom: 10px;">New to Tenergy?</h2>
                     <div style="padding: 25px; padding-top: 0px; padding-bottom: 0px; background-color: transparent;">
                         <p style="background-color: transparent; font-size: 13px; line-height: 20px;">Gain access to the lowest priced supplements in Europe by Signing up to a TenergySupps Account.</p>
@@ -112,22 +94,32 @@
         </div>
     </cont>
     <script>
+        let oldValue = 0
+        let newValue = 0
+        window.addEventListener('scroll', () => {
+            newValue = window.pageYOffset;
+            if (pageYOffset > 80) {
+                $('#banCont').css('transition', '0.125s ease-in-out');
+                if (oldValue > newValue) {
+                    $('#banCont').css('top', 0);
+                } else if (oldValue < newValue) {
+                    $('#banCont').css('top', -100);
+                    if (newValue == 0) {
+                        $('#banCont').css('opacity', '1');
+                    }
+                    else if (newValue > 0) {
+                        $('#banCont').css('opacity', '0.75');
+                    }
+                }
+            } else if (newValue == 0) {
+                $('#banCont').css('opacity', '1');
+            } else if (newValue < 80) {
+                $('#banCont').css('opacity', '0.75');
+            }
+            oldValue = newValue;
+        });
         setInterval(function () {
             $('#ban').css('height', document.getElementById("banCont").offsetHeight);
-            if (window.pageYOffset > document.getElementById("banCont").offsetHeight) {
-                $('#banCont').css('transition', '0.5s ease-in-out');
-                $('#banCont').css('position', 'fixed');
-                $('#banCont').css('box-shadow', '0px 0px 10px black');
-                $('#banCont').css('opacity', '0.5');
-                $('#banCont').css('animation', 'scroll 0.15s ease-in-out forwards');
-            }
-            else if (window.pageYOffset == 0) {
-                $('#banCont').css('transition', '0.125s ease-in-out');
-                $('#banCont').css('position', 'relative');
-                $('#banCont').css('box-shadow', '0px 0px 0px black');
-                $('#banCont').css('opacity', '1');
-                $('#banCont').css('animation', 'scroll1 0.15s ease-in-out backwards');
-            }
             if (window.innerWidth < 1000) {
                 $('#credCont').css("margin-left", "calc(50% - 225px)");
                 $('.loginCont').css("float", "left");
@@ -150,6 +142,23 @@
         }, function () {
             $(this).css("transition", "0.125s ease-in-out");
             $(this).css("border-color", "green");
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            setInterval(function () {
+                if (window.innerWidth < 1200) {
+                    document.getElementById('banContHref').innerHTML = "TE";
+                }
+                else {
+                    document.getElementById('banContHref').innerHTML = "Tenergy";
+                }
+            });
+            $('#banContHref').hover(() => {
+                $('#banContHref').css('color', 'white');
+            }, () => {
+                $('#banContHref').css('color', 'rgb(0, 200, 0)');
+            });
         });
     </script>
     <script>

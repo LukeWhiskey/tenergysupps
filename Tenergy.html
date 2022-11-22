@@ -363,12 +363,22 @@
             }, function () {
                 $('#banContHref').css("color", 'rgb(0, 200, 0)');
             });
-            setInterval(function () {
+            window.addEventListener('scroll', () => {
                 if (window.pageYOffset < staticHeight) {
                     $('.userCont').css('position', 'absolute');
                     $('#searchCont').css('position', 'absolute');
                     $('#banCont').css('position', 'relative');
                     $('.dynaBanNav').css('position', 'relative');
+                }
+                else if (window.pageYOffset > staticHeight) {
+                    $('.userCont').css('top', window.pageYOffset - 35);
+                    $('#searchCont').css('top', window.pageYOffset - 31);
+                    $('#banCont').css('top', window.pageYOffset - 35);
+                    $('.dynaBanNav').css('top', window.pageYOffset - 35);
+                }
+            });
+            setInterval(function () {
+                if (window.pageYOffset < staticHeight) {
                     $('.dynaBanNav').css('top', document.getElementById("staticBan").offsetTop);
                     $('#searchCont').css('top', 4);
                     $('.dynaBanNavBut').css('padding-top', '10px');
@@ -389,13 +399,9 @@
                         $(this).css('background-color', 'transparent');
                         $(this).css('color', 'white');
                         $(this).css('border-bottom', '0px');
-                    });q
+                    });
                 }
                 if (window.pageYOffset > staticHeight) {
-                    $('.userCont').css('top', window.pageYOffset - 35);
-                    $('#searchCont').css('top', window.pageYOffset - 31);
-                    $('#banCont').css('top', window.pageYOffset - 35);
-                    $('.dynaBanNav').css('top', window.pageYOffset - 35);
                     $('.dynaBanNavBut').css('background-color', 'rgb(20, 20, 20)');
                     $('.dynaBanNavBut').css('padding-top', '15px');
                     $('.dynaBanNavBut').css('padding-bottom', '15px');
