@@ -19,7 +19,17 @@
     <script src="JS/searchBar.js"></script> -->
     <style>
         .userItemCont {
-            padding-left: 25px;
+            padding-right: 12.5px;
+            padding-left: 12.5px;
+        }
+        @media screen and (max-width: 1200px) {
+            .userItemCont {
+                padding-right: 3vw;
+                padding-left: 4vw;
+            }
+            #basketText {
+                padding-right: 3.5vw;
+            }
         }
             .userItemCont:hover {
                 cursor: pointer;
@@ -33,61 +43,65 @@
             width: 300px;
             background-color: rgb(20, 20, 20);
         }
+        #basketText {
+            margin-left: 11px;
+        }
         #cookieConsent {
-            width: 100%;
-            min-width: 780px;
             height: auto;
-            bottom: 0px;
+            bottom: 20px;
             position: fixed;
             background-color: rgba(30, 30, 30, 0.5);
             color: rgb(0, 200, 0);
-            border-top: 2px solid green;
-            padding: 20px;
-            z-index: 99;
+            border: 2px solid green;
+            border-radius: 20px;
+            z-index: 3;
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
         #cookieButCont {
             float: right;
         }
         #terms {
-            margin: 15px;
-            min-width: 400px;
             float: left;
             text-align: center;
+            margin-top: 1px;
+            padding: 5px;
         }
         .cookieBut {
             float: right;
             background-color: black;
             border: 2px solid rgb(0, 100, 0);
             border-radius: 2px;
-            margin-left: 20px;
-            padding: 10px;
-            padding-left: 15px;
-            padding-right: 15px;
-            margin-top: 5px;
+            text-align: center;
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
         }
-        .cookieBut:hover {
-            cursor: pointer;
-            border: 2px solid rgb(0, 200, 0);
-            transition: 0.125s;
-        }
+            .cookieBut:hover {
+                cursor: pointer;
+                border: 2px solid rgb(0, 200, 0);
+                transition: 0.125s;
+                border-radius: 10px;
+            }
         #accept {
 
         }
         #necassary {
 
         }
-    </style>
-</head>
-<body style="margin-top: -20px; min-width: 780px;">
-    <style>
-        * {
-            max-width: 100%;
-            margin: 0px;
-            padding: 0px;
-            color: white;
-            font-family: Arial;
+        #back1, #back2, #back3 {
+            width: 100%;
+            position: absolute;
+            z-index: 0;
+            left: 0px;
         }
     </style>
+</head>
+<body>
+    <div id="back1" style="height: 35px; background-color: green;"></div>
+    <div id="back2" style="height: 40px; background-color: rgb(0, 200, 0); top: 115px;"></div>
+</body>
+<body style="background-color: black;">
     <div class="d-flex align-items-center justify-content-center" id="searchCont">
         <input class="searchBar" id="searchActive" placeholder="Search for a Product...">
         <button id="search"></button>
@@ -96,14 +110,14 @@
         <div class="dynaTheme" id="theme">
             <div id="staticBan">
                 <table class="custNav">
-                    <td class="custNavBut"><a class="custNavButHyp">Fast Return</a></td>
-                    <td class="custNavBut"><a class="custNavButHyp">Contact Us</a></td>
-                    <td class="custNavBut"><a class="custNavButHyp">GB</a></td>
+                    <td class="custNavBut"><a href="" class="custNavButHyp">Fast Return</a></td>
+                    <td class="custNavBut"><a href="" class="custNavButHyp">Contact Us</a></td>
+                    <td class="custNavBut"><a href="" class="custNavButHyp">GB</a></td>
                 </table>
             </div>
             <div id="dynaBanNavCont">
                 <div id="scrollCont">
-                    <div id="banCont"><a href="/" id="banContHref" style="font-family: Tarrget3DItalic-LdKg; color: rgb(0, 200, 0); text-decoration: none;"></a></div>
+                    <div id="banCont"><a href="Tenergy.html" id="banContHref" style="font-family: Tarrget3DItalic-LdKg; color: rgb(0, 200, 0); text-decoration: none;"></a></div>
                     <table class="userCont">
                         <td class="userItemCont" id="account" style="height: 79px;">
                             <a href="/myaccount">
@@ -133,7 +147,7 @@
                </div>
             </div>
             <div class="offerCont">
-                <a>
+                <a href="">
                     <div class="offer">
                         WINTER SALE | SAVE 40% OFF USE CODE
                         <div class="offerCode">SAVE40</div>
@@ -194,6 +208,84 @@
             $('#accountItemText').append("<a>Orders</a>");
         }
         */
+        $(document).ready(function () {
+            $('cont').append("<div id=\"backShad\"></div>");
+            $('#backShad').css('z-index', '4');
+            $('cont').append('<div id="prevBox" style="letter-spacing: 0.5vw; box-shadow: 10px 10px 20px black; height: 60vh; width: 60%; z-index: 99; background-color: rgba(0, 0, 0, 0.95); top: 20%; left: 20%; position: fixed; border-radius: 15px; border: 0.15vw solid green; font-size: 4vw; text-align: center; padding: 3.5%; line-height: 20vh; font-family: Tarrget3DItalic-LdKg; color: rgb(0, 255, 0);">TenergySupps<br>Coming soon...<div id="preview" style="line-height: 100%; font-size: 1vw; font-family: arial; background-color: rgb(10, 10, 10); padding: 1%; padding-left: 2%; border-radius: 5px; border: 0.15vw solid rgb(0, 150, 0); position: absolute; bottom: 5%; left: calc(50% - 5vw);">Preview</div></div>');
+            setInterval(function () {
+                if (window.innerWidth < 900) {
+                    $('#prevBox').css('height', '30vh');
+                    $('#prevBox').css('top', '30%');
+                    $('#prevBox').css('line-height', '10vh');
+                }
+                else {
+                    $('#prevBox').css('height', '60vh');
+                    $('#prevBox').css('top', '20%');
+                    $('#prevBox').css('line-height', '20vh');
+                }
+            });
+            $('#preview').hover(function () {
+                $('#preview').css('cursor', 'pointer');
+                $('#preview').css('transition', '0.125s');
+                $('#preview').css('border-radius', '10px');
+                $('#preview').css('border', '0.15vw solid rgb(0, 255, 0)');
+                $('#preview').css('background-color', 'black');
+            }, function () {
+                $('#preview').css('transition', '0.075s');
+                $('#preview').css('transform', 'scale(1)');
+                $('#preview').css('border-radius', '5px');
+                $('#preview').css('border', '0.15vw solid rgb(0, 150, 0)');
+                $('#preview').css('background-color', 'rgb(10, 10, 10)');
+            });
+            $('#backShad').click(function () {
+                $('#backShad').remove('#backShad');
+                $('#prevBox').css('transition', '0.5s');
+                $('#prevBox').css('transform', 'scale(2)');
+                $('#prevBox').css('opacity', '0');
+                setTimeout(function () {
+                    $('#prevBox').remove('#prevBox');
+                }, 500);
+            });
+            $('#prevBox').click(function () {
+                $('#backShad').remove('#backShad');
+                $('#prevBox').css('transition', '0.5s');
+                $('#prevBox').css('transform', 'scale(2)');
+                $('#prevBox').css('opacity', '0');
+                setTimeout(function () {
+                    $('#prevBox').remove('#prevBox');
+                }, 500);
+            });
+            $('#preview').click(function () {
+                $('#backShad').remove('#backShad');
+                $('#prevBox').css('transition', '0.5s');
+                $('#prevBox').css('transform', 'scale(2)');
+                $('#prevBox').css('opacity', '0');
+                setTimeout(function () {
+                    $('#prevBox').remove('#prevBox');
+                }, 500);
+            });
+            setInterval(function () {
+                if (window.innerWidth > 1200) {
+                    $('.dynaBanNav').css('display', 'block');
+                    $('.offerCont').css('margin-top', document.getElementById("nav").offsetHeight);
+                    const cats = ['Fitness', 'Energy', 'Clothing', 'Protein', 'Neutropics'];
+                    if ($('.dynaBanNavBut').length < cats.length) {
+                        var butContWidth = 0;
+                        for (var i = 0; i < cats.length; i++) {
+                            $('.dynaBanNav').append("<td class=\"dynaBanNavBut\" id=" + i + "\>" + cats[i] + "</td>");
+                            butContWidth += document.getElementById(i).offsetWidth;
+                        }
+                    }
+                    $('.dynaBanNav').css('padding-left', "calc(50% - " + butContWidth/2 + "px)");
+                }
+                else {
+                    $('.dynaBanNavBut').remove('.dynaBanNavBut');
+                    $('.offerCont').css('margin-top', '0px');
+                    $('.dynaBanNav').css('display', 'none');
+                    $('#back2').css('display', 'none');
+                }
+            });
+        });
         if (sessionStorage.getItem("userID") != null) {
             sessionStorage.removeItem("anonID");
             $('#stickyAccount').css('height', '15px');
@@ -213,8 +305,8 @@
         }
         else if (sessionStorage.getItem("userID") == null) {
             sessionStorage.setItem("anonID", "32883892");
-            $('#stickyAccount').append("<td><a href=\"login\" id=\"login\" style=\"color: white; border: 2px solid black; border-radius: 2px; box-shadow: 2px 2px 2px black; background-color: rgb(0, 150, 0); width: calc(100% - 20px); padding: 10px; left: 10px; position: absolute; text-align: center;\">Login</a></td>");
-            $('#stickyAccount').append("<td><a href=\"register\" id=\"register\" style=\"color: white; border: 2px solid black; border-radius: 2px; box-shadow: 2px 2px 2px black; background-color: rgb(0, 150, 0); width: calc(100% - 20px); padding: 10px; left: 10px; position: absolute; text-align: center;\">Register</br></a></td>");
+            $('#stickyAccount').append("<td><a href=\"Login.html\" id=\"login\" style=\"color: white; border: 2px solid black; border-radius: 2px; box-shadow: 2px 2px 2px black; background-color: rgb(0, 150, 0); width: calc(100% - 20px); padding: 10px; left: 10px; position: absolute; text-align: center;\">Login</a></td>");
+            $('#stickyAccount').append("<td><a href=\"Register.html\" id=\"register\" style=\"color: white; border: 2px solid black; border-radius: 2px; box-shadow: 2px 2px 2px black; background-color: rgb(0, 150, 0); width: calc(100% - 20px); padding: 10px; left: 10px; position: absolute; text-align: center;\">Register</br></a></td>");
             setInterval(function () {
                 $('#register').css('margin-top', document.getElementById("login").offsetHeight + 10);
             });
@@ -267,25 +359,30 @@
         });
     </script>
     <script>
-        //Cookie Container
+        // Cookie Container
         $(document).ready(function () {
             $('cont').append("<div id=\"cookieConsent\"></div>");
-            $('#cookieConsent').append("<div id=\"cookieButCont\"></div>")
+            $('#cookieConsent').append("<div id=\"cookieButCont\"></div>");
             $('#cookieConsent').append("<div id=\"terms\">You need to accept these for the site to function properly</div>");
             setInterval(function () {
                 var buttonContWidth = document.getElementById("cookieButCont").offsetWidth;
-                $('#terms').css('width', document.body.offsetWidth - buttonContWidth - 100);
-                if (window.innerWidth < 945) {
-                    $('#terms').css('margin-left', (window.innerWidth - document.getElementById("terms").offsetWidth) / 2 - 30);
-                    $('#terms').css('margin-bottom', 0);
-                    $('#cookieButCont').css('float', 'left');
-                    $('#cookieButCont').css('margin-left', (window.innerWidth - document.getElementById("cookieButCont").offsetWidth) / 2 - 30);
+                $('#cookieConsent').css('width', document.body.offsetWidth * 0.8);
+                $('#cookieConsent').css('margin-left', document.body.offsetWidth * 0.1);
+                if (window.innerWidth < 1200) {
+                    $('.cookieBut').css('width', buttonContWidth / 4);
+                    $('.cookieBut').css('margin-right', buttonContWidth * 0.0625);
+                    $('#cookieButCont').css('width', "100%");
+                    $('#terms').css('width', document.body.offsetWidth);
+                    $('#terms').css('margin-left', 0);
+                    $('#terms').css('margin-top', 10);
                 }
                 else {
-                    $('#terms').css('margin-left', 0);
-                    $('#terms').css('margin-bottom', 15);
-                    $('#cookieButCont').css('float', 'right');
-                    $('#cookieButCont').css('margin-left', 0);
+                    $('.cookieBut').css('width', "auto");
+                    $('.cookieBut').css('margin-right', 40);
+                    $('#cookieButCont').css('width', "auto");
+                    $('#terms').css('width', document.body.offsetWidth * 0.35);
+                    $('#terms').css('margin-left', document.body.offsetWidth * 0.03);
+                    $('#terms').css('margin-top', 2);
                 }
             });
             $('#cookieButCont').append("<div class=\"cookieBut\" id=\"accept\">Accept Cookies</div>");
@@ -295,33 +392,42 @@
                 $('#cookieConsent').css('bottom', '-20px');
                 $('#cookieConsent').css('opacity', '0');
                 $('#cookieConsent').css('transition', '0.125s');
+                $('cont').remove("<div id=\"cookieConsent\"></div>");
             });
             $('#necassary').click(function () {
                 $('#cookieConsent').css('bottom', '-20px');
                 $('#cookieConsent').css('opacity', '0');
                 $('#cookieConsent').css('transition', '0.125s');
+                $('cont').remove("<div id=\"cookieConsent\"></div>");
             });
         });
     </script>
     <script>
-        // defining the positions and dimensions of the searchBar for mobile and desktop
+        // Defining the positions and dimensions of the searchBar for mobile and desktop
         $(document).ready(function () {
-            var basketlen = 4;
-            var userHeight = document.getElementById("scrollCont").offsetHeight + document.getElementById("nav").offsetHeight;
+            var basketlen = 0;
+            var userHeight = document.getElementById("scrollCont").offsetHeight;
+            $('body').css('max-width', 1680);
             $('#banCont').css('height', userHeight);
             $('.userCont').css('height', document.getElementById("banCont").offsetHeight);
             setInterval(function () {
+                if (document.body.offsetWidth == 1680) {
+                    $('body').css('margin-left', (window.innerWidth - document.body.offsetWidth) * 0.5 - 6);
+                }
+                else {
+                    $('body').css('margin-left', 0);
+                }
                 $('#search').css('transition', '0s');
                 var dimensions = 35;
                 var staticHeight = document.getElementById("staticBan").offsetTop + document.getElementById("staticBan").offsetHeight + 20;
                 if (window.innerWidth < 1200) {
-                    var boxMultiCont = document.body.offsetWidth * 0.5;
-                    if (window.innerWidth < 780) {
-                        $('#searchCont').css('width', boxMultiCont);
-                        $('#searchCont').css('margin-left', document.body.offsetWidth / 4.9);
+                    if (window.innerWidth < 600) {
+                        $('#searchCont').css('margin-left', window.innerWidth * 0.35);
+                        $('.searchBar').css('width', window.innerWidth * 0.1);
                     }
                     else {
-                        $('#searchCont').css('margin-left', window.outerWidth * (1 - 0.5) / 2.875);
+                        $('#searchCont').css('margin-left', window.innerWidth * 0.25);
+                        $('.searchBar').css('width', window.innerWidth * 0.35);
                     }
                     document.getElementById('banContHref').innerHTML = "TE";
                     document.getElementById('accountText').innerHTML = "";
@@ -332,8 +438,12 @@
                     $('#basketText').css('margin-top', '8.5px');
                 }
                 else {
-                    var boxMultiCont = window.innerWidth * 0.3;
-                    $('#searchCont').css('margin-left', (window.innerWidth - (boxMultiCont + dimensions)) / 2 + 40);
+                    $('#searchCont').css('margin-left', document.body.offsetWidth * 0.3625);
+                    $('#searchCont').css('padding-left', 0);
+                    $('#searchCont').css('padding-right', 0);
+                    $('.searchBar').css('width', window.innerWidth * 0.3);
+                    $('.searchBar').css('max-width', document.body.offsetWidth * 0.3);
+                    $('#search').css('float', 'right');
                     document.getElementById('banContHref').innerHTML = "Tenergy";
                     document.getElementById('accountText').innerHTML = "Account";
                     document.getElementById('basketText').innerHTML = "Basket (" + basketlen + ")";
@@ -343,13 +453,11 @@
                     $('#basketText').css('margin-top', '7.5px');
                 }
                 $('#searchCont').css('margin-top', staticHeight);
-                $('#searchCont').css('width', boxMultiCont);
                 $('#searchCont').css('height', dimensions);
                 $('#search').css('width', dimensions);
                 $('#search').css('height', dimensions);
                 $('#search').css('transition', '0.1s');
                 $('.searchBar').css('height', dimensions);
-                $('.searchBar').css('width', boxMultiCont - dimensions);
             });
         });
     </script>
@@ -379,10 +487,13 @@
             });
             setInterval(function () {
                 if (window.pageYOffset < staticHeight) {
-                    $('.dynaBanNav').css('top', document.getElementById("staticBan").offsetTop);
+                    $('.dynaBanNav').css('background-color', 'rgb(0, 200, 0)');
+                    $('.dynaBanNav').css('padding-bottom', 'none');
+                    $('.dynaBanNav').css('height', '40px');
+                    $('.dynaBanNav').css('top', 0);
                     $('#searchCont').css('top', 4);
-                    $('.dynaBanNavBut').css('padding-top', '10px');
-                    $('.dynaBanNavBut').css('padding-bottom', '10px');
+                    $('.dynaBanNavBut').css('padding-top', '11px');
+                    $('.dynaBanNavBut').css('padding-bottom', '11px');
                     $('.dynaBanNavBut').css('border-bottom', '0px');
                     if (tf == 1) {
                         $('.userCont').css('top', 0);
@@ -394,7 +505,7 @@
                     $('.dynaBanNavBut').hover(function () {
                         $(this).css('background-color', 'black');
                         $(this).css('color', 'rgb(0, 240, 0)');
-                        $(this).css('border-bottom', '0px');
+                        $(this).css('padding-bottom', '10px solid red');
                     }, function () {
                         $(this).css('background-color', 'transparent');
                         $(this).css('color', 'white');
@@ -402,6 +513,9 @@
                     });
                 }
                 if (window.pageYOffset > staticHeight) {
+                    $('.dynaBanNav').css('background-color', 'rgb(20, 20, 20)');
+                    $('.dynaBanNav').css('border-bottom', '2px solid rgb(0, 200, 0)');
+                    $('.dynaBanNav').css('height', '50px');
                     $('.dynaBanNavBut').css('background-color', 'rgb(20, 20, 20)');
                     $('.dynaBanNavBut').css('padding-top', '15px');
                     $('.dynaBanNavBut').css('padding-bottom', '15px');
@@ -450,10 +564,10 @@
                     if (backShad == 0) {
                         clickIn();
                     }
-                    else if (backShad == 1) {
-                        $('#backShad').click(function () {
-                            clickOut();
-                        });
+                });
+                $('#backShad').click(function () {
+                    if (backShad == 1) {
+                        clickOut();
                     }
                 });
             });
