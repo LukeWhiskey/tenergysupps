@@ -1,5 +1,4 @@
 .offerCont {
-    z-index: 0;
     position: relative;
     letter-spacing: 0.5px;
     font-size: 14px;
@@ -9,6 +8,7 @@
     padding-top: 15px;
     padding-bottom: 7.5px;
     background-color: transparent;
+    width: 100%;
 }
 
     .offerCont:hover {

@@ -14,25 +14,49 @@ cont {
         }
 .dynaTheme {
     background-image: url(../Assets/neon.jpg);
-    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
-    height: 100vh;
+}
+@media screen and (min-width: 700px) {
+    .dynaTheme {
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .unleash {
+        margin-top: -50px;
+        letter-spacing: 10px;
+        font-size: 85px;
+        overflow: hidden;
+        font-weight: 100;
+        color: white;
+        text-shadow: 2.5px 2.5px 5px rgb(0, 255, 0);
+        width: 100%;
+        line-height: 200px;
+        font-family: Tarrget3DItalic-LdKg;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .dynaTheme {
+        background-size: 1500px;
+        background-position: center center;
+    }
+
+    .unleash {
+        margin-top: -50px;
+        letter-spacing: 10px;
+        font-size: 35px;
+        overflow: hidden;
+        font-weight: 100;
+        color: white;
+        text-shadow: 2.5px 2.5px 5px rgb(0, 255, 0);
+        width: 100%;
+        line-height: 200px;
+        font-family: Tarrget3DItalic-LdKg;
+    }
 }
 .backHeadCont {
             padding: 40px;
-        }
-.unleash {
-            margin-top: -50px;
-            letter-spacing: 10px;
-            font-size: 75px;
-            overflow: hidden;
-            font-weight: 100;
-            color: white;
-            text-shadow: 0px 0px 5px rgb(0, 255, 0);
-            width: 100%;
-            line-height: 200px;
-            font-family: Tarrget3DItalic-LdKg;
         }
 @font-face {
     src: url(../Assets/Tarrget3DItalic-LdKg.otf);
@@ -46,4 +70,5 @@ cont {
     height: 100%;
     position: fixed;
     top: 0px;
+    left: 0px;
 }
