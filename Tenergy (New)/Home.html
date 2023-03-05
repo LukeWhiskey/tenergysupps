@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Responsive Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        ::-webkit-scrollbar {
+            background-color: rgb(20, 20, 20);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-image: linear-gradient(to top, rgba(20, 20, 20, 0.5), rgba(0, 255, 255, 0.5), rgba(0, 255, 255, 0.5), rgba(20, 20, 20, 0.5));
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            position: fixed;
+            z-index: 99;
+            top: 0px;
+            padding: 20px;
+            padding-top: 15px;
+            background-image: linear-gradient(-50deg, transparent 50%, rgba(0, 255, 255, 0.75));
+            border: 0px;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font: 400 15px/1.8 "Lato", sans-serif;
+            color: #777;
+        }
+
+        .nav-link {
+            letter-spacing: 2px;
+            font-weight: 500;
+            font: 18px "Lato", sans-serif;
+        }
+
+        #whey, #pre, #vit {
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+        }
+
+        #neon {
+            background-attachment: unset;
+            background-image: url('Assets/neonbacks.jpg');
+            background-size: 100% 100%;
+            opacity: 0.6;
+        }
+
+        .l {
+            transform: rotateY(180deg);
+        }
+
+        .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+            position: relative;
+            background-attachment: fixed;
+            background-position: bottom;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 750px;
+        }
+
+        .bgimg-1 {
+            background-image: url('Assets/barweight.jpg');
+            background-position: center;
+            min-height: 100vh;
+        }
+
+        .bgimg-2 {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 200, 0.5)), url('Assets/weights.jpg');
+        }
+
+        .bgimg-3 {
+            background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 200, 0.5)), url('Assets/onemore.jpg');
+            background-position: top;
+        }
+
+        .bgimg-4 {
+            background-image: linear-gradient(to right, rgba(0, 0, 200, 0.5), rgba(0, 200, 0, 0.5)), url('Assets/maximus.jpg');
+        }
+
+        .flav, .cost {
+            background: linear-gradient(to left, rgba(0, 255, 255, 0.25), transparent, rgba(0, 255, 255, 0.25));
+            border: solid 1px rgba(0, 255, 255, 0.5);
+            box-shadow: 0px 0px 0px rgba(0, 255, 255, 1);
+            padding: 15px;
+            width: 100%;
+            height: auto;
+            text-align: left;
+            transition: 0.1s;
+        }
+
+            .cost {
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+
+            .flav:hover, .cost:hover {
+                transition: 0.1s;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+        .we {
+            margin: 5px;
+            padding: 6px;
+            padding-right: 10px;
+            padding-left: 15px;
+            letter-spacing: 2px;
+            background-color: black;
+            border: solid 1px rgba(0, 255, 255, 0.5);
+            transition: 0.1s;
+        }
+
+            .we:hover, .we:active, .proaddtobas:hover, .proaddtobas:active {
+                border: solid 1px rgba(0, 255, 255, 0.75);
+                background-color: rgba(0, 0, 0, 0.5);
+                transition: 0.1s;
+            }
+
+        .pro {
+            background-color: rgba(0, 0, 0, 0);
+            height: 100%;
+            width: 100%;
+            border-radius: 0px;
+            text-align: center;
+            position: relative;
+        }
+
+        .prorow {
+            padding: 25px;
+        }
+
+        .proorder {
+            padding-top: 25px;
+        }
+
+        .propara {
+            padding-top: 0px;
+            text-align: center;
+            font-size: 2.5vw;
+        }
+
+        .proform {
+            margin-left: calc(50% - 75% / 2 - 50px / 2);
+            width: calc(75% + 50px);
+        }
+
+        .proimg {
+            height: 400px;
+            width: 266.66px;
+            margin-top: 30px;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            margin-left: calc(50% - 266.66px / 2);
+        }
+
+        .snapcont {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        .snap-scroll {
+            overflow-y: hidden;
+            white-space: nowrap;
+            scroll-snap-type: x mandatory;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            width: 100%;
+            margin-top: -10px;
+        }
+
+            .snap-scroll::-webkit-scrollbar {
+                display: none;
+            }
+
+        .slide {
+            display: inline-block;
+            scroll-snap-align: center;
+            width: 100%;
+        }
+
+        .img-slider {
+            width: 100%;
+            height: auto;
+            padding-left: 0px;
+            padding-right: 0px;
+            margin-left: 0px;
+        }
+
+        .slider-col {
+            height: calc(12.5vw + 10px);
+            border: 1px solid rgba(0, 255, 255, 0.5);
+            background-color: rgba(0, 255, 255, 0.25);
+            overflow: hidden;
+            background-size: 60% 90%;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            cursor: pointer;
+        }
+
+            .slider-col:hover, .slider-col:active, .slider-active {
+                background-size: 70% 100%;
+                border: 1px solid rgba(0, 255, 255, 0.75);
+                background-color: rgba(0, 255, 255, 0.33);
+                transition: 0.1s;
+            }
+
+        .img {
+            height: 90%;
+            width: 90%;
+            min-width: 25px;
+            margin-top: 5%;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            transition: 0.05s;
+        }
+
+        .img:hover {
+            height: 110%;
+            width: 110%;
+            margin-top: -5%;
+            margin-left: -5%;
+            transition: 0.05s;
+        }
+
+        .proincrabut {
+            height: 50px;
+            width: 50px;
+        }
+
+        .minus {
+            border-radius: 5px 0px 0px 5px;
+        }
+
+        .plus {
+            border-radius: 0px 5px 5px 0px;
+        }
+
+        .minus, .plus {
+            background-color: transparent;
+            border: 1px solid rgba(0, 255, 255, 0.5);
+        }
+
+            .minus:hover, .plus:hover {
+                border: 1px solid rgba(0, 255, 255, 0.75);
+            }
+
+        .proincrainput {
+            background-color: transparent;
+            color: white;
+            text-align: center;
+            border: 0px;
+            height: 50px;
+            font-size: 20px;
+            border: 1px solid rgba(0, 255, 255, 0.5);
+            transition: 0.1s;
+        }
+
+            .proincrainput:hover {
+                background-color: rgba(0, 0, 0, 0.25);
+                border: 1px solid rgba(0, 255, 255, 0.75);
+                transition: 0.1s;
+            }
+
+        .input-group {
+            margin-top: 15px;
+        }
+
+        .proaddtobas {
+            width: 100%;
+            margin-top: 10px;
+            background-image: linear-gradient(to left, rgba(0, 255, 255, 0.3), rgba(0, 0, 0, 0) 50%, rgba(0, 255, 255, 0.3));
+            border: 1px solid rgba(0, 255, 255, 0.5);
+            padding: 15px;
+            transition: ease-in 0.1s;
+        }
+
+        .flavctrl {
+            letter-spacing: 1.5px;
+            font-size: 14px;
+            color: white;
+            background-color: black;
+            border: solid 1px rgba(0, 255, 255, 0.25);
+            transition: ease-in 0.1s;
+        }
+
+        .flavctrl:hover {
+            border: 1px solid rgba(0, 255, 255, 0.75);
+            background-color: rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: ease-in 0.1s;
+        }
+
+        .caption {
+            position: absolute;
+            left: 0px;
+            top: calc(50% - 44px);
+            width: 100%;
+            text-align: center;
+            color: #000;
+            background: linear-gradient(to left, rgba(0, 255, 255, 0.3), rgba(0, 0, 0, 0) 50%, rgba(0, 255, 255, 0.3));
+        }
+
+            .caption span.header {
+                letter-spacing: 3vw;
+                font-size: 44px;
+                padding: 2vw;
+                padding-left: 3.5vw;
+                margin-left: 0px;
+                text-align: center;
+            }
+
+        .header {
+            text-shadow: 0px 0px 10px rgb(0, 255, 255);
+        }
+
+        h1, h2, h3 {
+            letter-spacing: 5px;
+            padding-left: 5px;
+            text-transform: uppercase;
+            font: 20px "Lato", sans-serif;
+            text-align: center;
+            color: white;
+        }
+
+        h3 {
+            color: rgb(0, 255, 0);
+            padding-bottom: 20px;
+        }
+
+        .bar {
+            color: white;
+            background-color: black;
+            text-align: center;
+            padding: 50px;
+            text-align: justify;
+        }
+
+        .footrow {
+            padding: 40px;
+            padding-top: 0px;
+            text-align: center;
+        }
+
+        #svg {
+            margin-left: calc(50% - 100px / 2);
+        }
+
+        #copy {
+            text-align: center;
+        }
+
+        /* Turn off parallax scrolling for tablets and phones
+        @media only screen and (max-device-width: 1024px) {
+            .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+                background-attachment: scroll;
+            }
+        }*/
+
+        @media (pointer:coarse) {
+        }
+
+        @media (pointer:fine) {
+            .proaddtobas:hover {
+                background-color: rgba(0, 0, 0, 0.5);
+                transition: 0.15s;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .we {
+                font-size: 3vw;
+                padding-left: 3.5vw;
+            }
+        }
+
+        @media (max-height: 450px) {
+            .nav-link {
+                font-size: 4vh;
+            }
+
+            .caption {
+                top: calc(50% + 20px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .bgimg-2, .bgimg-3, .bgimg-4 {
+                min-height: calc(1000px + 50vw);
+            }
+
+            .caption span.header {
+                font-size: 12.5vw;
+            }
+        }
+
+        @media (min-width: 310px) {
+            .proaddtobas {
+                margin-top: 25px;
+            }
+        }
+
+        @media (min-width: 400px) {
+            .img-slider {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        @media (min-width: 576px) {
+            .bgimg-2, .bgimg-3, .bgimg-4 {
+                min-height: 1175px;
+            }
+
+            .img-slider {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            .slider-col {
+                height: 12.5vw;
+            }
+
+            .footrow {
+                text-align: left;
+            }
+
+            .propara {
+                font-size: 10px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .pro {
+                background-color: rgba(0, 0, 0, 0.7);
+            }
+
+            .bgimg-2, .bgimg-3, .bgimg-4 {
+                min-height: calc(40vw + 475px);
+            }
+
+            .proimg {
+                height: 400px;
+                width: calc(400px / 1.5);
+                margin-left: calc(50% - 400px / 1.5 / 2);
+            }
+
+            .snap-scroll {
+                margin-top: -5px;
+            }
+
+            .img-slider {
+                margin-top: 20px;
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+
+            .slider-col {
+                height: 60px;
+            }
+
+            .pro {
+                border-radius: 10px;
+            }
+
+            .prorow {
+                padding: 50px;
+                padding-left: 50px;
+            }
+
+            .proorder {
+                padding-top: 0px;
+            }
+
+            .propara {
+                padding-top: 20px;
+                font-size: 1.25vw;
+            }
+
+            #whey, #pre, #vit {
+                padding: 50px;
+            }
+
+            .col2 {
+                padding-left: 50px;
+            }
+
+            .proaddtobas {
+                margin-top: 15px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .bgimg-2, .bgimg-3, .bgimg-4 {
+                min-height: 800px;
+            }
+
+            .proimg {
+                height: 450px;
+                width: calc(450px / 1.5);
+                margin-left: calc(50% - 450px / 1.5 / 2);
+            }
+
+            .img-slider {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            .slider-col {
+                height: 70px;
+            }
+
+            .navbar {
+                background-image: linear-gradient(to top, transparent, rgba(0, 255, 255, 0.5));
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            .caption {
+                top: calc(50% - 5vw);
+            }
+
+                .caption span.header {
+                    letter-spacing: 3vw;
+                    padding-left: 5vw;
+                    font-size: 5vw;
+                }
+
+            .prorow {
+                padding-left: 0px;
+            }
+
+            .snapcont {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .propara {
+                font-size: 13.5px;
+            }
+
+            .col2 {
+                padding-left: 0px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .bgimg-2, .bgimg-3, .bgimg-4 {
+                min-height: 875px;
+            }
+
+            .proimg {
+                height: 525px;
+                width: calc(525px / 1.5);
+                margin-left: calc(50% - 525px / 1.5 / 2);
+            }
+
+            .img-slider {
+                margin-top: 0px;
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            .slider-col {
+                height: 85px;
+            }
+
+            .propara {
+                font-size: 15px;
+            }
+
+            .proaddtobas {
+                margin-top: 70px;
+            }
+        }
+    </style>
+</head>
+<body style="background-color: black; overflow-x: hidden;">
+    <script>
+        $(document).ready(function () {
+
+            // navbar active section function
+            $('.nav-item').click(function () {
+                $('.nav-item').removeClass("active");
+                $(this).addClass("active");
+            });
+            setInterval(() => {
+                Yoffset = window.pageYOffset;
+                wheyheight = document.getElementById("barwhey").offsetHeight;
+                preheight = document.getElementById("barpre").offsetHeight;
+                vitheight = document.getElementById("barvit").offsetHeight;
+                if (Yoffset >= $("#home").offset().top) {
+                    $('.nav-item').removeClass("active");
+                    $('.home').addClass("active");
+                    if (Yoffset >= $("#whey").offset().top - wheyheight) {
+                        $('.nav-item').removeClass("active");
+                        $('.whey').addClass("active");
+                        if (Yoffset >= $("#pre").offset().top - preheight) {
+                            $('.nav-item').removeClass("active");
+                            $('.pre').addClass("active");
+                            if (Yoffset >= $("#vit").offset().top - vitheight) {
+                                $('.nav-item').removeClass("active");
+                                $('.vit').addClass("active");
+                            }
+                        }
+                    }
+                }
+            });
+
+            // numerator functions for product quantity
+            $('.wheyplus').click(function (e) {
+                e.preventDefault();
+                var quantity = parseInt($('#wheyquantity').val());
+                if (quantity < 99) {
+                    $('#wheyquantity').val(quantity + 1);
+                }
+            });
+            $('.wheyminus').click(function (e) {
+                e.preventDefault();
+                var quantity = parseInt($('#wheyquantity').val());
+                if (quantity > 1) {
+                    $('#wheyquantity').val(quantity - 1);
+                }
+            });
+
+            $('.preplus').click(function (e) {
+                e.preventDefault();
+                var quantity = parseInt($('#prequantity').val());
+                if (quantity < 99) {
+                    $('#prequantity').val(quantity + 1);
+                }
+            });
+            $('.preminus').click(function (e) {
+                e.preventDefault();
+                var quantity = parseInt($('#prequantity').val());
+                if (proquant > 1) {
+                    $('#prequantity').val(quantity - 1);
+                }
+            });
+
+            $('.vitplus').click(function (e) {
+                e.preventDefault();
+                var quantity = parseInt($('#vitquantity').val());
+                if (quantity < 99) {
+                    $('#vitquantity').val(quantity + 1);
+                }
+            });
+            $('.vitminus').click(function (e) {
+                e.preventDefault();
+                var quantity = parseInt($('#vitquantity').val());
+                if (quantity > 1) {
+                    $('#vitquantity').val(quantity - 1);
+                }
+            });
+
+            // keeps number input attributes the smae
+            $('.proincrainput').click(function () {
+                $('.proincrainput').css('background-color', 'rgba(0, 0, 0, 0.5)');
+                $('.proincrainput').css('color', 'white');
+                $('.proincrainput').css('border', '1px solid rgba(0, 255, 255, 0.5)');
+            });
+
+            // image slider
+            /*
+            const slides = document.querySelectorAll('.slide');
+            let slideIndex = 0;
+            showSlide();
+            function showSlide() {
+                slides.forEach(slide => slide.style.display = 'none');
+                slides[slideIndex].style.display = 'block';
+                slideIndex++;
+                if (slideIndex >= slides.length) {
+                    slideIndex = 0;
+                }
+                setTimeout(showSlide, 200000);
+            }*/
+        });
+    </script>
+    <style>
+        * {
+            color: white;
+        }
+    </style>
+    <div class="bgimg-1" id="home">
+        <div class="bgimg-1" style="background-attachment: unset; background-image: linear-gradient(to top, black, green); opacity: 0.5;">
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-trasnparent mb-3">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item home active">
+                    <a class="nav-link" href="#home">HOME<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item whey">
+                    <a class="nav-link" href="#whey">WHEY</a>
+                </li>
+                <li class="nav-item pre">
+                    <a class="nav-link" href="#pre">PRE</a>
+                </li>
+                <li class="nav-item vit">
+                    <a class="nav-link" href="#vit">VITALITY</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="caption">
+            <span class="header">TENERGY</span>
+        </div>
+    </div>
+    <div class="bar" id="barwhey">
+        <div class="container">
+            <h3>PROTEIN WHEY</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+    <div class="bgimg-2">
+        <div class="bgimg-2" id="neon">
+        </div>
+        <div id="whey">
+            <div class="container pro">
+                <div class="row prorow">
+                    <div class="col-md-6">
+                        <h1>PROTEIN WHEY</h1>
+                        <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" data="1">
+                                    <div class="proimg" style="background-image: url('Assets/img.png');"></div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="proimg" style="background-image: url('Assets/img.png');"></div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="proimg" style="background-image: url('Assets/img.png');"></div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="proimg" style="background-image: url('Assets/img.png');"></div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev" id="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next" id="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                            <ol class="row img-slider">
+                                <li class="col m-2 slider-col active" data-target="#carouselIndicators" data-slide-to="0" style="background-image: url('Assets/img.png');">
+                                </li>
+                                <li class="col m-2 slider-col" data-target="#carouselIndicators" data-slide-to="1" style="background-image: url('Assets/img.png');">
+                                </li>
+                                <li class="col m-2 slider-col" data-target="#carouselIndicators" data-slide-to="2" style="background-image: url('Assets/img.png');">
+                                </li>
+                                <li class="col m-2 slider-col" data-target="#carouselIndicators" data-slide-to="3" style="background-image: url('Assets/img.png');">
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col2">
+                        <h1 class="proorder">ORDER</h1>
+                        <p class="propara">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <div>
+                            <div class="container picker-container">
+                                <div class="row">
+                                    <div class="col-lg-12" style="padding: 0px;">
+                                        <div class="form-group flav">
+                                            <label for="exampleFormControlSelect1" style="float: left; letter-spacing: 1.5px; font-size: 150%;">Flavour</label>
+                                            <select class="form-control flavctrl" id="exampleFormControlSelect1">
+                                                <option style="color: black; background-color: white;">Vanilla</option>
+                                                <option style="color: black; background-color: white;">Chocolate</option>
+                                                <option style="color: black; background-color: white;">Banana</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 cost">
+                                <div style="padding-bottom: 10px;">
+                                    <h1 style="padding: 0px; padding-top: 12.5px; text-align: left; font-size: 150%;">
+                                        £59.99
+                                    </h1>
+                                    <div class="row justify-content-center" style="text-align: center;">
+                                        <a class="col-3 we">1kg</a>
+                                        <a class="col-4 we">2.5kg</a>
+                                        <a class="col-3 we">5kg</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group" style="background: linear-gradient(to left, rgba(0, 255, 255, 0.25), transparent, rgba(0, 255, 255, 0.25)); border-radius: 5px; ">
+                                <span class="input-group-btn">
+                                    <button type="button" style="background-color: rgba(200, 0, 0, 0.333);" class="wheyminus proincrabut minus quantity-left-minus btn btn-number" data-type="minus" data-field="">
+                                        <span class="glyphicon glyphicon-minus">
+                                            <div style="font-size: 40px; margin-top: -15px; color: red;">-</div>
+                                        </span>
+                                    </button>
+                                </span>
+                                <input type="text" id="wheyquantity" class="proincrainput form-control input-number" value="1" min="1" max="99">
+                                <span class="input-group-btn">
+                                    <button type="button" style="background-color: rgba(0, 100, 0, 0.333);" class="wheyplus proincrabut plus quantity-right-plus btn btn-number" data-type="plus" data-field="">
+                                        <span class="glyphicon glyphicon-plus">
+                                            <div style="font-size: 40px; margin-top: -10px; color: rgb(0, 200, 0);">+</div>
+                                        </span>
+                                    </button>
+                                </span>
+                            </div>
+                            <form class="proform" style="margin-top: -10px;">
+                                <div class="input-group">
+                                    <a class="proaddtobas">Add to basket</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bar" id="barpre">
+        <div class="container">
+            <h3>PRE-WORKOUT</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+    <div class="bgimg-3">
+        <div class="bgimg-2 l" id="neon">
+        </div>
+        <div id="pre">
+            <div class="container pro">
+                <div class="row prorow">
+                    <div class="col-md-6">
+                        <h1>PRE-WORKOUT</h1>
+                        <div class="snap-scroll">
+                            <div class="slide">
+                                <div class="proimg" style="background-image: url('Assets/img.png');"></div>
+                            </div>
+                            <div class="slide">
+                                <div class="proimg" style="background-image: url('Assets/img.png');"></div>
+                            </div>
+                            <div class="slide">
+                                <div class="proimg" style="background-image: url('Assets/img.png');"></div>
+                            </div>
+                            <div class="slide">
+                                <div class="proimg" style="background-image: url('Assets/img.png');"></div>
+                            </div>
+                        </div>
+                        <div class="img-slider">
+                            <div class="row p-2">
+                                <div class="col m-2 slider-col">
+                                    <img class="img" src="Assets/img.png" />
+                                </div>
+                                <div class="col m-2 slider-col">
+                                    <img class="img" src="Assets/img2.png" />
+                                </div>
+                                <div class="col m-2 slider-col">
+                                    <img class="img" src="Assets/img.png" />
+                                </div>
+                                <div class="col m-2 slider-col">
+                                    <img class="img" src="Assets/img.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col2">
+                        <h1 class="proorder">ORDER</h1>
+                        <p class="propara">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <div>
+                            <div class="container picker-container">
+                                <div class="row">
+                                    <div class="col-lg-12" style="padding: 0px;">
+                                        <div class="form-group flav">
+                                            <label for="exampleFormControlSelect1" style="float: left; letter-spacing: 1.5px; font-size: 150%;">Flavour</label>
+                                            <select class="form-control flavctrl" id="exampleFormControlSelect1">
+                                                <option style="color: black; background-color: white;">Vanilla</option>
+                                                <option style="color: black; background-color: white;">Chocolate</option>
+                                                <option style="color: black; background-color: white;">Banana</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 cost">
+                                <div style="padding-bottom: 10px;">
+                                    <h1 style="padding: 0px; padding-top: 12.5px; text-align: left; font-size: 150%;">
+                                        £59.99
+                                    </h1>
+                                    <div class="row justify-content-center" style="text-align: center;">
+                                        <a class="col-3 we">1kg</a>
+                                        <a class="col-4 we">2.5kg</a>
+                                        <a class="col-3 we">5kg</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group" style="background: linear-gradient(to left, rgba(0, 255, 255, 0.25), transparent, rgba(0, 255, 255, 0.25)); border-radius: 5px; ">
+                                <span class="input-group-btn">
+                                    <button type="button" style="background-color: rgba(200, 0, 0, 0.333);" class="preminus proincrabut minus quantity-left-minus btn btn-number" data-type="minus" data-field="">
+                                        <span class="glyphicon glyphicon-minus">
+                                            <div style="font-size: 40px; margin-top: -15px; color: red;">-</div>
+                                        </span>
+                                    </button>
+                                </span>
+                                <input type="text" id="wheyquantity" class="proincrainput form-control input-number" value="1" min="1" max="99">
+                                <span class="input-group-btn">
+                                    <button type="button" style="background-color: rgba(0, 100, 0, 0.333);" class="preplus proincrabut plus quantity-right-plus btn btn-number" data-type="plus" data-field="">
+                                        <span class="glyphicon glyphicon-plus">
+                                            <div style="font-size: 40px; margin-top: -10px; color: rgb(0, 200, 0);">+</div>
+                                        </span>
+                                    </button>
+                                </span>
+                            </div>
+                            <form class="proform" style="margin-top: -10px;">
+                                <div class="input-group">
+                                    <a class="proaddtobas">Add to basket</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bar" id="barvit">
+        <div class="container">
+            <h3>VITALITY</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+    <div class="bgimg-4">
+        <div class="bgimg-4" id="neon">
+        </div>
+        <div id="vit">
+            <div class="container pro">
+                <div class="row prorow">
+                    <div class="col-md-6">
+                        <h1>ALPHA MAXIMUS</h1>
+                        <div class="snap-scroll">
+                            <div class="slide">
+                                <div class="proimg" style="background-image: url('Assets/img.png');"></div>
+                            </div>
+                            <div class="slide">
+                                <div class="proimg" style="background-image: url('Assets/img.png');"></div>
+                            </div>
+                            <div class="slide">
+                                <div class="proimg" style="background-image: url('Assets/img.png');"></div>
+                            </div>
+                            <div class="slide">
+                                <div class="proimg" style="background-image: url('Assets/img.png');"></div>
+                            </div>
+                        </div>
+                        <div class="img-slider">
+                            <div class="row p-2">
+                                <div class="col m-2 slider-col">
+                                    <img class="img" src="Assets/img.png" />
+                                </div>
+                                <div class="col m-2 slider-col">
+                                    <img class="img" src="Assets/img2.png" />
+                                </div>
+                                <div class="col m-2 slider-col">
+                                    <img class="img" src="Assets/img.png" />
+                                </div>
+                                <div class="col m-2 slider-col">
+                                    <img class="img" src="Assets/img.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col2">
+                        <h1 class="proorder">ORDER</h1>
+                        <p class="propara">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <div>
+                            <div class="container picker-container">
+                                <div class="row">
+                                    <div class="col-lg-12" style="padding: 0px;">
+                                        <div class="form-group flav">
+                                            <label for="exampleFormControlSelect1" style="float: left; letter-spacing: 1.5px; font-size: 150%;">Flavour</label>
+                                            <select class="form-control flavctrl" id="exampleFormControlSelect1">
+                                                <option style="color: black; background-color: white;">Vanilla</option>
+                                                <option style="color: black; background-color: white;">Chocolate</option>
+                                                <option style="color: black; background-color: white;">Banana</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 cost">
+                                <div style="padding-bottom: 10px;">
+                                    <h1 style="padding: 0px; padding-top: 12.5px; text-align: left; font-size: 150%;">
+                                        £59.99
+                                    </h1>
+                                    <div class="row justify-content-center" style="text-align: center;">
+                                        <a class="col-3 we">1kg</a>
+                                        <a class="col-4 we">2.5kg</a>
+                                        <a class="col-3 we">5kg</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group" style="background: linear-gradient(to left, rgba(0, 255, 255, 0.25), transparent, rgba(0, 255, 255, 0.25)); border-radius: 5px; ">
+                                <span class="input-group-btn">
+                                    <button type="button" style="background-color: rgba(200, 0, 0, 0.333);" class="vitminus proincrabut minus quantity-left-minus btn btn-number" data-type="minus" data-field="">
+                                        <span class="glyphicon glyphicon-minus">
+                                            <div style="font-size: 40px; margin-top: -15px; color: red;">-</div>
+                                        </span>
+                                    </button>
+                                </span>
+                                <input type="text" id="wheyquantity" class="proincrainput form-control input-number" value="1" min="1" max="99">
+                                <span class="input-group-btn">
+                                    <button type="button" style="background-color: rgba(0, 100, 0, 0.333);" class="vitplus proincrabut plus quantity-right-plus btn btn-number" data-type="plus" data-field="">
+                                        <span class="glyphicon glyphicon-plus">
+                                            <div style="font-size: 40px; margin-top: -10px; color: rgb(0, 200, 0);">+</div>
+                                        </span>
+                                    </button>
+                                </span>
+                            </div>
+                            <form class="proform" style="margin-top: -10px;">
+                                <div class="input-group">
+                                    <a class="proaddtobas">Add to basket</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bgimg-1">
+        <div class="bgimg-1" style="background-attachment: unset; background-image: linear-gradient(to bottom, black, green); background-color: #161616; opacity: 0.4;">
+        </div>
+    </div>
+    <footer class="container py-5">
+        <div class="row footrow" style="padding: 40px;">
+            <div class="col-6 col-md">
+                <svg id="svg" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="rgb(0, 255, 0)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+                <small id="copy" class="d-block mb-3 text-muted">&copy; 2022-2023</small>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Features</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="#">Resource</a></li>
+                    <li><a class="text-muted" href="#">Another resource</a></li>
+                    <li><a class="text-muted" href="#">Another resource</a></li>
+                    <li><a class="text-muted" href="#">Another resource</a></li>
+                    <li><a class="text-muted" href="#">Another resource</a></li>
+                    <li><a class="text-muted" href="#">Another resource</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="#">Resource</a></li>
+                    <li><a class="text-muted" href="#">Resource name</a></li>
+                    <li><a class="text-muted" href="#">Another resource</a></li>
+                    <li><a class="text-muted" href="#">Final resource</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="#">Team</a></li>
+                    <li><a class="text-muted" href="#">Locations</a></li>
+                    <li><a class="text-muted" href="#">Privacy</a></li>
+                    <li><a class="text-muted" href="#">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
